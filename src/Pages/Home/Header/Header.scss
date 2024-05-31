@@ -1,0 +1,30 @@
+.Header{
+    margin-top: 29px;
+}
+.nav_items{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav_departments{
+    
+    ul{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 75px;
+        li{
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+    }
+}
+.nav_icons{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 47px;
+    .bi{
+        font-size: 23px;
+    }
+}

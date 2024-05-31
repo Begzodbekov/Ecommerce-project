@@ -1,0 +1,130 @@
+.Products{
+    margin-top: 56px;
+    // text-align: center;
+}
+.products_inner{
+    .product-name{
+        text-align: center;
+        font-size: 40px;
+        font-weight: 700;
+    }
+    .products_list{
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1500px;
+        flex-wrap: wrap;
+        gap: 5px;
+        margin-top: 36px;
+        .product_items{
+            background-color: #F4F5F7;
+            height: 590px;
+            position: relative;
+            margin-bottom: 32px;
+            // cursor: pointer;
+            img{
+                width: 340px;
+                height: 450px;
+                object-fit: cover;
+            }
+            .discount{
+                position: absolute;
+                background-color: #E97171;
+                color: #fff;
+                padding: 10px 5px;
+                border-radius: 50px;
+                margin-left: 265px;
+                margin-top: 24px;
+                font-weight: 600;
+            }
+            .new{
+                position: absolute;
+                background-color: #2EC1AC;
+                color: #fff;
+                padding: 10px 5px;
+                border-radius: 50px;
+                margin-left: 265px;
+                margin-top: 24px;
+            }
+            .product-item-about{
+                margin-top: 16px;
+                margin-left: 16px;
+                .product-item-name{
+                    font-size: 24px;
+                    font-weight: 600;
+                }
+                .product-item-title{
+                    font-size: 16px;
+                    color: #898989;
+                    margin-top: 8px;
+                }
+                span{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-top: 8px;
+                    .product-item-price{
+                        font-size: 20px;
+                        font-weight: 700;
+                    }
+                    .product-item-oldprice{
+                        font-size: 16px;
+                        color: #898989;
+                        margin-right: 25px;
+                        text-decoration: line-through;
+                    }
+                }
+            }
+            .product-card_hover{
+                height: 590px;
+                background-color: #3a3a3aaf;
+                width: 100%;
+                position: absolute;
+                z-index: 99;
+                opacity: 0;
+                transition: 0.7s all ease-in-out;
+                overflow: hidden;
+                .Pcard_hover{
+                    text-align: center;
+                    padding: 175px 17px;
+                    transition: 0.6s;
+                    transform: translateY(390px);
+                    opacity: 0;
+                    .card_btn{
+                        font-size: 18px;
+                        padding: 15px 59px;
+                        background-color: #fff;
+                        color: #B88E2F;
+                        font-weight: 600;
+                    }
+                    .card-link_list{
+                        display: flex;
+                        justify-content: space-around;
+                        align-items: center;
+                        margin-top: 24px;
+                        li{
+                            font-size: 20px;
+                            color: #ffff;
+                            font-weight: 600;
+                            .bi{
+                                margin-right: 4px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .product_items:hover{
+            .product-card_hover{
+                opacity: 1;
+                .Pcard_hover{
+                    transform: translateY(0px);
+                    opacity: 1;
+                    transition: 0.6s;
+                }
+            }
+        }
+    }
+
+}
