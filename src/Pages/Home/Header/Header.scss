@@ -1,30 +1,244 @@
-.Header{
+.Header {
     margin-top: 29px;
 }
-.nav_items{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.nav_departments{
-    
-    ul{
+
+.nav_inner {
+
+    .nav_items {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        gap: 75px;
-        li{
-            font-weight: 700;
-            letter-spacing: 2px;
+    }
+
+    .nav_departments {
+
+        ul {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 75px;
+
+            li {
+                font-weight: 700;
+                letter-spacing: 2px;
+            }
         }
     }
-}
-.nav_icons{
+
+    .nav_icons {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 47px;
+
+        .bi {
+            font-size: 23px;
+            cursor: pointer;
+        }
+    }
+
+    .shopping-card {
+        // top: 0;
+        // right: 0;
+        // position: fixed;
+        z-index: 99;
+        height: 750px;
+        background-color: #fff;
+        padding: 28px 30px 28px 35px;
+        position: fixed;
+        // bottom: 0;
+        top: 0;
+        right: 0;
+        // display: flex;
+        // flex-direction: column;
+        // max-width: 100%;
+        // background-clip: padding-box;
+        // outline: 0;
+        .shopping-card-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+
+            h2 {
+                font-size: 24px;
+                font-family: sans-serif;
+                font-weight: 700;
+            }
+
+            .bi {
+                margin-left: 160px;
+                font-size: 20px;
+            }
+        }
+
+        .card-line {
+            display: block;
+            background-color: #D9D9D9;
+            max-width: 265px;
+            height: 2px;
+            margin-top: 26px;
+        }
+
+        .card_hero {
+            margin-top: 42px;
+
+            .card_item1 {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                span {
+
+                    h3 {
+                        font-size: 16px;
+                        font-weight: 600;
+                    }
+
+                    .card-spannumber {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        gap: 25px;
+                        margin-top: 11px;
+
+                        :nth-child(2) {
+                            font-size: 15px;
+                            color: #B88E2F;
+                        }
+                    }
+                }
+
+                .card-x {
+                    font-size: 20px;
+                    color: #9F9F9F;
+                }
+            }
+
+            .card_item2 {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-top: 20px;
+
+                span {
+
+                    h3 {
+                        font-size: 16px;
+                        font-weight: 600;
+                    }
+
+                    .card-spannumber {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        gap: 25px;
+                        margin-top: 11px;
+
+                        :nth-child(2) {
+                            font-size: 15px;
+                            color: #B88E2F;
+                        }
+                    }
+                }
+
+                .card-x {
+                    font-size: 20px;
+                    color: #9F9F9F;
+                }
+            }
+        }
+
+        .shopping-card-foot {
+            margin-top: 235px;
+
+            .card-subtotal {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                :nth-child(1) {
+                    font-size: 20px;
+                    font-weight: 600;
+                }
+
+                :nth-child(2) {
+                    font-size: 20px;
+                    font-weight: 600;
+                    color: #B88E2F;
+                }
+            }
+
+            .card-footer-line {
+                background-color: #D9D9D9;
+                height: 2px;
+                margin-left: -35px;
+                margin-top: 26px;
+                position: absolute;
+                width: 472px;
+            }
+
+            .card_bottom {
+                margin-top: 50px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 14px;
+
+                .card-btn {
+                    padding: 6px 30px;
+                    border-radius: 50px;
+                    border: 1px solid black;
+                }
+            }
+        }
+    }
+
+    .shopping-cardend{
+        top: 0;
+        right: 0;
+        width: var(--bs-offcanvas-width);
+        border-left: var(--bs-offcanvas-border-width) solid var(--bs-offcanvas-border-color);
+        transform: translateX(100%);
+    }
+
+    .shopping-card.shop-show{
+        visibility: visible;
+        transition: 0.4s all ease-in-out;
+    }
+
+    .off-canvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1040;
+        width: 100vw;
+        height: 100vh;
+        background-color: #000;
+    }
+
+    .fade {
+        transition: opacity .15s linear;
+    }
+
+    .off-canvas.show {
+        opacity: .5;
+    }
+
+    .none {
+        position: fixed;
+    bottom: 0;
+    // z-index: var(--bs-offcanvas-zindex);
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 47px;
-    .bi{
-        font-size: 23px;
+    flex-direction: column;
+    max-width: 100%;
+    // color: var(--bs-offcanvas-color);
+    visibility: hidden;
+    // background-color: var(--bs-offcanvas-bg);
+    // background-clip: padding-box;
+    outline: 0;
+    // transition: var(--bs-offcanvas-transition);
+    transition: 0.4s all ease-in-out;
+
     }
 }
