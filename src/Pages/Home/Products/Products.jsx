@@ -1,8 +1,20 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './Products.scss'
 import { products } from '../../../lib/products'
-import { Link } from 'react-router-dom'
+import { json, Link } from 'react-router-dom'
 function Products() {
+    const [sharedata, setSharedata] = useState([])
+    
+    useEffect(() => {
+        fetch("https://begzodbekproyekt.onrender.com/product/mahsulotlar/")
+        .then((res) => res.json())
+        .then((data) => setSharedata(data))
+
+    }, [2000])
+        
+    // let localarr = []
+    // localarr.push(sharedata)
+    console.log(sharedata);
     return (
         <div className='Products'>
             <div className="container">
@@ -10,7 +22,7 @@ function Products() {
                     <h1 className='product-name'>Our Products</h1>
                     <ul className='products_list'>
                         {
-                            products?.map((item, index) => (
+                            sharedata?.map((item, index) => (
                                 <li className='product_items' key={index}>
                                     <div className='product-card_hover'>
                                         <div className='Pcard_hover'>
@@ -32,7 +44,7 @@ function Products() {
                                         </div>
                                     </div>
                                     <span className={item.discount ? 'discount' : '' || item.New ? 'new' : ''}>{item.discount ? item.discount : '' || item.New ? item.New : ''}</span>
-                                    <img src={item.img} alt="" />
+                                    <img src={item.images.image} alt="" />
                                     <div className='product-item-about'>
 
                                         <h2 className='product-item-name'>{item.name}</h2>
