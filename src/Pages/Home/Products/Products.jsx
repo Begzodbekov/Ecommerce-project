@@ -10,7 +10,7 @@ function Products() {
         .then((res) => res.json())
         .then((data) => setSharedata(data))
 
-    }, [2000])
+    }, [100])
         
     // let localarr = []
     // localarr.push(sharedata)
@@ -44,7 +44,7 @@ function Products() {
                                         </div>
                                     </div>
                                     <span className={item.discount ? 'discount' : '' || item.New ? 'new' : ''}>{item.discount ? item.discount : '' || item.New ? item.New : ''} </span>
-                                    <img src={item.images.image} alt="" />
+                                    <img src={item.image} alt="product" />
                                     <div className='product-item-about'>
 
                                         <h2 className='product-item-name'>{item.name}</h2>
