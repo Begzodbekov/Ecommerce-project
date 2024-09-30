@@ -3,6 +3,7 @@ import Hero from './Hero/Hero'
 import Browse from './Browse/Browse'
 import Products from './Products/Products'
 import './Home.scss'
+import Rooms from './Rooms/Rooms'
 function Home() {
   return (
     <div className='Home'>
@@ -10,6 +11,7 @@ function Home() {
         <Hero/>
         <Browse/>
         <Products/>
+        <Rooms/>
     </div>
   )
 }

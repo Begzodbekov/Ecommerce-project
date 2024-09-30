@@ -6,10 +6,34 @@ import Shoppingimg1 from '../../../img/Shopping-cardimg1.png'
 import Shoppingimg2 from '../../../img/Shopping-cardimg2.png'
 function Header() {
 
-  const [shop, setShop] = useState(false)
-    // const Shop = () => {
-    //     Shopref.className = ('block')
-    // }
+
+    const [shop, setShop] = useState(false)
+    const clickOff = () => {
+        setShop(false)
+    }
+
+    const [localCard, setlocalCard] = useState(()=>{
+        const caritems = window.localStorage.getItem('localCart');
+        return caritems ? JSON.parse(caritems): [];
+    })
+
+    let sum = 0
+    localCard.forEach((item)=>{
+        sum += item.price *item.count;
+    })
+
+    function removeCart(id){
+        const updatecart = localCard.map((item)=>{
+            if(item.id=== id && item.count>1){
+                return{...item, count: item.count -1};
+            }
+            return item;
+        }).filter((item)=> item.count>0);
+        setlocalCard(updatecart)
+        window.localStorage.setItem('localCart', JSON.stringify(updatecart))
+        
+    }
+
     return (
         <div className='Header'>
             {/*------------------------ Nav bar -----------------------*/}
@@ -34,35 +58,46 @@ function Header() {
                                 <i class="bi bi-person-exclamation"></i>
                                 <i class="bi bi-search"></i>
                                 <i class="bi bi-heart"></i>
-                                <i onClick={() => setShop(true)} class="bi bi-cart3"></i>
+                                <i onClick={() => setShop(!shop)} class="bi bi-cart3">
+                                    <span>{localCard.length}</span>
+                                </i>
+                                
                             </div>
                         </div>
                         {/*------------------------ Shop card -----------------------*/}
 
 
-                        <div className={ shop == true? 'shopping-card shop-show  ': 'shopping-cardend none'}>
+                        <div className={shop == true ? 'shopping-card shop-show  ' : 'none'}>
                             <div className="shopping-card-nav">
                                 <h2>Shopping Cart</h2>
-                                <i onClick={() => setShop(false)} class="bi bi-bag-x"></i>
+                                <i onClick={() => setShop(!shop)} class="bi bi-bag-x"></i>
                             </div>
                             <span className='card-line'></span>
 
-                        {/*------------------------ Shop products -----------------------*/}
+                            {/*------------------------ Shop products -----------------------*/}
 
                             <div className='card_hero'>
-                                <div className='card_item1'>
-                                    <img src={Shoppingimg1} alt="" />
-                                    <span>
-                                        <h3>Asgaard sofa</h3>
-                                        <span className='card-spannumber'>
-                                            <p>1 X</p>
-                                            <p>Rs. 250,000.00</p>
-                                        </span>
-                                    </span>
-                                        <i class="bi bi-x-circle-fill card-x"></i>
-                                </div>
+                                <ul className='card_item1'>
+                                    {
+                                       localCard?.map((item, index) => (
+                                            <li className='card_list' key={item.id}>
+                                                    <Link>
+                                                    <img src={item.img} alt="" />
+                                                    <span>
+                                                        <h3>{item.name}</h3>
+                                                        <span className='card-spannumber'>
+                                                            <p>{item.count} <span>X</span></p>
+                                                            <p>Rp{item.price* item.count}</p>
+                                                        </span>
+                                                    </span>
+                                                    <i onClick={()=> removeCart(item.id) } class="bi bi-x-circle-fill card-x"></i>
+                                                    </Link>
+                                                </li>
+                                        ))
+                                    }
+                                </ul>
 
-                                <div className='card_item2'>
+                                {/* <div className='card_item2'>
                                     <img src={Shoppingimg2} alt="" />
                                     <span>
                                         <h3>Asgaard sofa</h3>
@@ -71,15 +106,15 @@ function Header() {
                                             <p>Rs. 250,000.00</p>
                                         </span>
                                     </span>
-                                        <i class="bi bi-x-circle-fill card-x"></i>
-                                </div>
+                                    <i class="bi bi-x-circle-fill card-x"></i>
+                                </div> */}
                             </div>
 
 
-                            <div  className='shopping-card-foot'>
+                            <div className='shopping-card-foot'>
                                 <div className='card-subtotal'>
                                     <p>Subtotal</p>
-                                    <p>Rs. 520,000.00</p>
+                                    <p>Rs. {sum}</p>
                                 </div>
                                 <span className='card-footer-line'></span>
                                 <div className='card_bottom'>
@@ -89,7 +124,7 @@ function Header() {
                                 </div>
                             </div>
                         </div>
-                        {/* <div className="off-canvas fade show"></div> */}
+                        <div onClick={clickOff} className={shop == true ? "off-canvas show" : 'fade'} ></div>
                     </div>
                 </div>
             </nav>
