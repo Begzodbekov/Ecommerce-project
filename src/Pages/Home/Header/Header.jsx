@@ -12,6 +12,12 @@ function Header() {
         setShop(false)
     }
 
+    // console.log(JSON.parse(window.localStorage.getItem('localCart')));
+    const getcart = []
+    const pushcart = JSON.parse(window.localStorage.getItem('localCart'))
+    getcart.push(pushcart)
+    console.log(getcart);
+    
     const [localCard, setlocalCard] = useState(()=>{
         const caritems = window.localStorage.getItem('localCart');
         return caritems ? JSON.parse(caritems): [];
@@ -24,7 +30,7 @@ function Header() {
 
     function removeCart(id){
         const updatecart = localCard.map((item)=>{
-            if(item.id=== id && item.count>1){
+            if(item.id=== id && item.count>0){
                 return{...item, count: item.count -1};
             }
             return item;
@@ -97,17 +103,7 @@ function Header() {
                                     }
                                 </ul>
 
-                                {/* <div className='card_item2'>
-                                    <img src={Shoppingimg2} alt="" />
-                                    <span>
-                                        <h3>Asgaard sofa</h3>
-                                        <span className='card-spannumber'>
-                                            <p>1 X</p>
-                                            <p>Rs. 250,000.00</p>
-                                        </span>
-                                    </span>
-                                    <i class="bi bi-x-circle-fill card-x"></i>
-                                </div> */}
+
                             </div>
 
 

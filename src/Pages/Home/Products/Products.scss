@@ -18,6 +18,7 @@
         flex-wrap: wrap;
         gap: 5px;
         margin-top: 36px;
+
         .product_items{
             background-color: #F4F5F7;
             height: 550px;
@@ -92,6 +93,22 @@
                     transition: 0.6s;
                     transform: translateY(390px);
                     opacity: 0;
+                    .product-warning{
+                        padding: 20px;
+                        position: absolute;
+                        background-color: red;
+                        color: #fff;
+                        margin-top: -180px;
+                        visibility: hidden;
+                        width: 300px;
+                        transition: 1s all ease-in-out;
+                    }
+                    .visible{
+                        visibility: visible;
+                        z-index: 99;
+                        transition: 5s all ease-in-out;
+
+                    }
                     .card_btn{
                         font-size: 18px;
                         padding: 15px 59px;

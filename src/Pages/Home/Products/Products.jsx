@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import './Products.scss';
 import { products } from '../../../lib/products';
 import { Link } from 'react-router-dom';
@@ -8,28 +8,30 @@ function Products() {
     const localCart = window.localStorage.getItem('localCart');
     return localCart ? JSON.parse(localCart) : [];
   });
-
+  const [pwarning, setPwarning] = useState()
   // Function to add a product to the local cart
   function addlocalCart(id) {
+    setTimeout(()=>{
+      setPwarning('hidden')
+    },3000)
+    setPwarning('visible')
     const productToAdd = products.find((item) => item.id === id);
-    
-    // Check if the product is already in the cart
+
     const existingProductIndex = cardarr.findIndex(item => item.id === id);
-    
+
     if (existingProductIndex >= 0) {
-      // Product exists, increment count
       const updatedCart = [...cardarr];
       updatedCart[existingProductIndex].count += 1;
       setCardarr(updatedCart);
       window.localStorage.setItem('localCart', JSON.stringify(updatedCart));
     } else {
-      // Product does not exist, add it with count 1
-      const newProduct = { ...productToAdd, count: 1 }; // Initialize count to 1
+      const newProduct = { ...productToAdd, count: 1 };
       const updatedCart = [...cardarr, newProduct];
       setCardarr(updatedCart);
       window.localStorage.setItem('localCart', JSON.stringify(updatedCart));
     }
   }
+
 
   return (
     <div className='Products'>
@@ -41,6 +43,8 @@ function Products() {
               <li className='product_items' key={index}>
                 <div className='product-card_hover'>
                   <div className='Pcard_hover'>
+                    <div className={pwarning !== 'visible' ? 'product-warning' : 'product-warning visible'}>Hozirda texnik tuzatishlar bolayotkanligi sababli,
+                      sahifani yangilaganingizdan keyin maqsulod savatga qo'shiladi. </div>
                     <button
                       onClick={() => {
                         addlocalCart(item.id);
@@ -49,6 +53,7 @@ function Products() {
                     >
                       Add to cart
                     </button>
+
                     <ul className='card-link_list'>
                       <li>
                         <Link>
