@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import './Header.scss'
 import Logo from '../../../img/logo.png'
 import { Link } from 'react-router-dom'
@@ -12,17 +12,22 @@ function Header() {
         setShop(false)
     }
 
-    // console.log(JSON.parse(window.localStorage.getItem('localCart')));
-    const getcart = []
-    const pushcart = JSON.parse(window.localStorage.getItem('localCart'))
-    getcart.push(pushcart)
-    console.log(getcart);
     
-    const [localCard, setlocalCard] = useState(()=>{
-        const caritems = window.localStorage.getItem('localCart');
-        return caritems ? JSON.parse(caritems): [];
-    })
+    // const [localCard, setlocalCard] = useState(()=>{
+    //     const caritems = window.localStorage.getItem('localCart');
+    //     return caritems ? JSON.parse(caritems): [];
+    // })   
 
+    const [localCard, setlocalCard] = useState([])
+    useEffect(()=>{
+       const caritems = window.localStorage.getItem('localCart');
+       if (caritems) {
+        setlocalCard(JSON.parse(caritems));
+    }
+    console.log(caritems);
+    
+    },[])
+    
     let sum = 0
     localCard.forEach((item)=>{
         sum += item.price *item.count;

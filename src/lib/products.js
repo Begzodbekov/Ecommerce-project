@@ -47,7 +47,7 @@ export const products =[
         img: img5,
         name: "Grifo",
         title:"Night lamp",
-        price:" 1.500.000",
+        price:" 15.000",
     },
     {
         id:6,

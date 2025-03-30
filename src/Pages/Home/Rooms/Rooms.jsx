@@ -14,6 +14,9 @@ function Rooms() {
 
               <div>
                 <div>
+                  <img src="" alt="" />
+                </div>
+                <div>
                   <h3>01 <span></span> Bed Room</h3>
                   <h2>Inner Peace</h2>
                 </div>

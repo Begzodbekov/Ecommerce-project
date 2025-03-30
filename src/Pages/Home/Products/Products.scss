@@ -115,6 +115,8 @@
                         background-color: #fff;
                         color: #B88E2F;
                         font-weight: 600;
+                        border: none;
+                        cursor: pointer;
                     }
                     .card-link_list{
                         display: flex;
@@ -126,7 +128,12 @@
                             color: #ffff;
                             font-weight: 600;
                             .bi{
+                                color: #ffff;
                                 margin-right: 4px;
+                            }
+                            :nth-child(2){
+                                color: #ffff !important;
+                                text-decoration: none;
                             }
                             .product_like{
                                 color: red   ;
@@ -151,6 +158,6 @@
         color: #B88E2F;
         padding: 12px 74px;
         border: 1px solid #B88E2F;
-        
+        text-decoration: none;
     }
 }

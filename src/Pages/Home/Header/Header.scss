@@ -1,5 +1,8 @@
 .Header {
     margin-top: 29px;
+    :link{
+        text-decoration: none;
+    }
 }
 
 .nav_inner {
@@ -17,10 +20,14 @@
             justify-content: space-between;
             align-items: center;
             gap: 75px;
-
+            
             li {
                 font-weight: 700;
                 letter-spacing: 2px;
+                list-style-type: none;
+                :nth-child(1){
+                    color: #000;
+                }
             }
         }
     }
