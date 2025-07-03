@@ -6,6 +6,15 @@ import img5 from '../img/products5.jpg'
 import img6 from '../img/products6.jpg'
 import img7 from '../img/products7.jpg'
 import img8 from '../img/products8.jpg'
+
+//                  Rooms imgs
+import roomsimg1 from '../img/room-img1.png'
+import roomsimg2 from '../img/room-img2.png'
+import roomsimg3 from '../img/room-img3.png'
+import roomsimg4 from '../img/room-img4.png'
+import roomsimg5 from '../img/room-img5.png'
+
+
 export const products =[
     {
         id:1,
@@ -73,5 +82,36 @@ export const products =[
         title:"Minimalist flower pot",
         price:" 500.000",
         New:"New"
+    },
+]
+
+
+//  Rooms Api data
+
+export const roomsdata =[
+    {
+        id:1,
+        img: roomsimg1,
+        name: "Bed Room",
+    },
+    {
+        id:2,
+        img: roomsimg2,
+        name: "Bed Room",
+    },
+    {
+        id:3,
+        img: roomsimg3,
+        name: "Bed Room",
+    },
+    {
+        id:4,
+        img: roomsimg4,
+        name: "Living room",
+    },
+    {
+        id:5,
+        img: roomsimg5,
+        name: "Living room",
     },
 ]

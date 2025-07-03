@@ -79,12 +79,12 @@ function Products() {
                 <span className={item.discount ? 'discount' : '' || item.New ? 'new' : ''}>
                   {item.discount ? item.discount : '' || item.New ? item.New : ''}
                 </span>
-                <img src={item.img} alt="product" />
+                <img className='product_img' src={item.img} alt="product" />
                 <div className='product-item-about'>
                   <h2 className='product-item-name'>{item.name}</h2>
                   <p className='product-item-title'>{item.title}</p>
                   <span>
-                    <p className='product-item-price'>Rp {item.price}</p>
+                    <p className='product-item-price' >Rp {item.price}</p>
                     <p className='product-item-oldprice'>Rp{item.oldprice}</p>
                   </span>
                 </div>

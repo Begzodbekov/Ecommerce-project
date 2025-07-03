@@ -30,15 +30,17 @@
                 height: 400px;
                 object-fit: cover;
             }
+
             .discount{
                 position: absolute;
                 background-color: #E97171;
                 color: #fff;
                 padding: 10px 5px;
                 border-radius: 50px;
-                margin-left: 105px;
+                left: 270px;
                 margin-top: 24px;
                 font-weight: 600;
+                font-size: 15px;
             }
             .new{
                 position: absolute;
@@ -46,7 +48,7 @@
                 color: #fff;
                 padding: 10px 5px;
                 border-radius: 50px;
-                margin-left: 105px;
+                left: 270px;
                 margin-top: 24px;
             }
             .product-item-about{
@@ -87,6 +89,7 @@
                 opacity: 0;
                 transition: 0.7s all ease-in-out;
                 overflow: hidden;
+                // cursor: pointer;
                 .Pcard_hover{
                     text-align: center;
                     padding: 175px 17px;
